@@ -3,17 +3,22 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"os"
 )
 
 func main() {
-	var nom string
 	fmt.Println("What's your name?")
-	scanner := bufio.NewScanner(os.Stdin)
+	name := readName(os.Stdout)
+	fmt.Println("Hello " + name)
+}
+
+func readName(r io.Reader) string {
+	scanner := bufio.NewScanner(r)
 	scanner.Scan()
-	nom = scanner.Text()
-	if nom == "" {
-		nom = "You"
+	name := scanner.Text()
+	if name == "" {
+		name = "You"
 	}
-	fmt.Println("Hello " + nom)
+	return name
 }
