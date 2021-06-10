@@ -3,6 +3,8 @@ name: Go
 on:
   push:
     branches: [ main ]
+    tags: 
+      - "1*"
   pull_request:
     branches: [ main ]
 
@@ -10,7 +12,7 @@ jobs:
   pre-release:
     name: "Pre Release"
     runs-on: "ubuntu-latest"
-
+# test
     steps:
     - uses: actions/checkout@v2
 
@@ -34,3 +36,4 @@ jobs:
         title: "Development Build"
         files: |
           CloudBeesDemo
+
