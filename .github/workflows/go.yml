@@ -18,19 +18,19 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.16.X
-      # ...
-    - name: "Build & test"
-      run: echo "done!"
-
-    - uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
-        prerelease: true
-        title: "Development Build"
 
     - name: Build
       run: go build -v ./...
 
     - name: Test
       run: go test -v ./...
+      
+    - name: Deploy
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Development Build"
+        files: |
+          CloudBeesDemo
