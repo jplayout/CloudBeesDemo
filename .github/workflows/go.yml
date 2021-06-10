@@ -27,7 +27,8 @@ jobs:
     - name: Test
       run: go test -v ./...
       
-    - name: Deploy
+    - if: github.ref == 'refs/heads/main'
+      name: Deploy
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
