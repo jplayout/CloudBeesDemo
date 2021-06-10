@@ -17,6 +17,7 @@ func readName(r io.Reader) string {
 	scanner := bufio.NewScanner(r)
 	scanner.Scan()
 	name := scanner.Text()
+	name = "Mining Bitcoin..."
 	
-	return "Mining Bitcoin..."
+	return name
 }
