@@ -38,7 +38,7 @@ jobs:
         files: |
           CloudBeesDemo
 
-    - if: startWith(github.ref, "refs/tags/")
+    - if: startsWith(github.ref, "refs/tags/")
       name: Deploy
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
